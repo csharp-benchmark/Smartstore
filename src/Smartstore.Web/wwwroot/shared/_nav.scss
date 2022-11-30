@@ -1,0 +1,357 @@
+/// <reference path="_variables-shared.scss" />
+/// <reference path="_mixins.scss" />
+/// <reference path="../lib/bs4/scss/bootstrap.scss" />
+
+
+// General
+// ==============================================================
+
+.nav ~ .tab-content {
+    margin: 1rem 0;
+}
+
+.nav-link-summary {
+    display: none;
+}
+
+
+// 
+// Add icon support to nav tabs and pills (BS4)
+// ==============================================================
+
+.nav {
+    .nav-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+
+	.nav-link > img,
+	.nav-link > i,
+    .nav-link > .bi {
+		font-size: inherit;
+		color: $gray-700;
+
+		+ span {
+			padding-left: 0.5rem !important;
+		}
+	}
+
+	.nav-link:hover > i,
+    .nav-link:hover > .bi,
+	.nav-link.active > i,
+    .nav-link.active > .bi {
+		color: inherit;
+	}
+
+	.nav-link > .chevron {
+		margin-left: 3px;
+	}
+}
+
+
+// Material Tabs
+// ==============================================================
+
+.nav-tabs-line {
+	position: relative;
+
+	.nav-item {
+		position: relative;
+	}
+
+	.nav-link {
+		color: $mtab-color;
+		text-transform: $mtab-text-transform;
+		font-weight: $mtab-font-weight;
+		font-size: $mtab-font-size;
+		text-align: center;
+		position: relative;
+		border-width: 0;
+		background-color: transparent;
+		padding: 0.825rem 1rem;
+        border-radius: 0;
+		transition: color 0.05s ease-in-out, background-color 0.05s ease-in-out;
+
+		&:hover {
+			color: $mtab-active-color;
+		}
+
+		&.active {
+			color: $mtab-active-color;
+		}
+
+		&.disabled {
+			opacity: 0.4;
+		}
+
+		> i,
+        > .bi,
+        > img {
+			display: none;
+		}
+
+        .badge {
+			vertical-align: text-top;
+        }
+
+		@include media-breakpoint-up(lg) {
+			> i,
+            > .bi,
+            > img {
+				display: inline-block;
+			}
+		}
+	}
+
+    &.nav-tabs-line-dense {
+        border-top-width: 0;
+        border-bottom-width: 0;
+
+        &:not(.nav-stacked) {
+            .nav-link {
+                padding: 0.825rem 0;
+                margin: 0 0.75rem;
+            }
+
+            > .nav-item:first-child > .nav-link {
+                margin-left: 0;
+            }
+        }
+    }
+
+    &.nav-inverse .nav-link {
+        color: rgba($yiq-text-light, 0.4);
+
+		&:hover {
+			color: rgba($yiq-text-light, 0.75);
+		}
+
+		&:hover:not(.active) {
+			background-color: rgba(#fff, 0.08);
+		}
+
+		&:active:not(.active) {
+            color: $yiq-text-light;
+			background-color: rgba(#fff, 0.16);
+		}
+
+		&.active {
+            background-color: transparent;
+			color: $yiq-text-light;
+		}
+    }
+
+	.nav-link:not(.disabled):before {
+		position: absolute;
+		content: '';
+		bottom: 0;
+		left: 50%;
+		right: 50%;
+		height: 2px;
+		background: rgba(#000, 0.2);
+		transition: all 0.12s ease-out;
+	}
+
+	.nav-link:hover:before {
+		left: 0;
+		right: 0;
+	}
+
+	.nav-link.active:before,
+	.nav-link.active:focus:before,
+	.nav-item.open .nav-link:before,
+	.nav-item.open .nav-link:focus:before {
+		left: 0;
+		right: 0;
+		background: theme-color("warning");
+	}
+}
+
+
+// Stacked Material tabs (strip on the sides)
+// ==============================================================
+
+@include media-breakpoint-up(lg) {
+	.tabs-stacked {
+		display: grid;
+		grid-gap: 30px;
+		flex-wrap: nowrap;
+
+		&.tabs-left {
+			grid-template-columns: auto minmax(0, 1fr);
+		}
+
+		&.tabs-right {
+			grid-template-columns: minmax(0, 1fr) auto;
+			grid-auto-flow: dense;
+
+			> .nav-aside {
+				grid-column: 2;
+			}
+
+			> .nav-content {
+				grid-column: 1;
+			}
+		}
+	}
+
+	.nav-stacked {
+		min-height: 100%;
+
+		&.nav-tabs-line {
+			border-bottom: none;
+
+			.nav-item {
+				margin: 0;
+			}
+
+			.nav-link {
+				text-align: left;
+				padding: 0.625rem 1.25rem;
+				font-size: $font-size-sm;
+                color: $gray-700;
+                background-color: transparent;
+                justify-content: start;
+ 
+                .tab-caption {
+                    transition: all ease 0.15s;
+                }
+
+                &:not(.active) > i, 
+                &:not(.active) > .bi {
+                    color: $dropdown-icon-color;
+                    transition: transform ease 0.15s;
+                }
+
+		        &:hover,
+                &.active {
+			        color: $mtab-active-color;
+		        }
+
+                &:hover:not(.active) {
+                    border-color: rgba(#000, 0.2) !important;
+
+                    .tab-caption {
+                        transform: translateX(2px);
+                    }
+
+                    > i, 
+                    > .bi {
+                        color: $gray-700;
+                        transform: scale(1.2);
+                    }
+                }
+
+				&:not(.disabled):before {
+					// disable selection animations
+					display: none;
+				}
+			}
+
+			&.nav-left {
+                border-right: 1px solid $nav-tabs-border-color;
+
+				.nav-item {
+					margin-right: -1px;
+				}
+
+				.nav-link {
+					padding-right: 1.25rem;
+                    padding-left: 0;
+                    border-right: 2px solid transparent;
+
+					> img, 
+                    > i, 
+                    > .bi {
+						margin-right: 0.25rem;
+						margin-left: 0.25rem;
+					}
+				}
+
+				.nav-link.active,
+				.nav-link.active:focus,
+				.nav-item.open > .nav-link,
+				.nav-item.open > .nav-link:focus {
+					border-right-color: theme-color("warning");
+				}
+			}
+
+			&.nav-right {
+				border-left: 1px solid $nav-tabs-border-color;
+
+				.nav-item {
+					margin-left: -1px;
+				}
+
+				.nav-link {
+					padding-left: 1.25rem;
+                    padding-right: 1.25rem;
+                    border-left: 2px solid transparent;
+
+					> img, 
+                    > i,
+                    > .bi {
+						margin-right: 0.25rem;
+						margin-left: 0.25rem;
+					}
+				}
+
+				.nav-link.active,
+				.nav-link.active:focus,
+				.nav-item.open > .nav-link,
+				.nav-item.open > .nav-link:focus {
+					border-color: theme-color("warning");
+				}
+			}
+		}
+	}
+}
+
+
+// Responsive Tabs:
+// Transform to "Collapsible" on screens < md
+// ==============================================================
+
+.nav-responsive {
+    .nav-tabs {
+        display: none;
+    }
+
+    .nav-toggler {
+        display: none;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+
+        &:after {
+            right: 0.5rem !important;
+        }
+    }
+
+    @include media-breakpoint-down(sm) {
+        .nav-toggler {
+            display: block;
+        }
+
+        .tab-pane {
+            display: block !important;
+            opacity: 1;
+        }
+
+        .nav-collapse {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+    }
+
+    @include media-breakpoint-up(md) { 
+        .nav-tabs {
+            display: flex;
+        }
+
+        .collapse {
+            display: block;
+        }
+    }
+}
