@@ -3,5 +3,6 @@
 		<Product>Smartstore Smartstore.ShippingByWeight</Product>
 		<OutputPath>..\..\Smartstore.Web\Modules\Smartstore.ShippingByWeight</OutputPath>
 		<OutDir>$(OutputPath)</OutDir>
+		<TargetFramework>net7.0</TargetFramework>
 	</PropertyGroup>
 </Project>

@@ -8,6 +8,7 @@
     
     <PropertyGroup>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <TargetFramework>net7.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>

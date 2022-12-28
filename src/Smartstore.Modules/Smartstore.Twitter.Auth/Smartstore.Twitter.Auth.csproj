@@ -3,6 +3,7 @@
 		<Product>Smartstore Twitter Authentication</Product>
 		<OutputPath>..\..\Smartstore.Web\Modules\Smartstore.Twitter.Auth</OutputPath>
 		<OutDir>$(OutputPath)</OutDir>
+		<TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
 	<ItemGroup>
 	  <PackageReference Include="Microsoft.AspNetCore.Authentication.Twitter" Version="7.0.0" />

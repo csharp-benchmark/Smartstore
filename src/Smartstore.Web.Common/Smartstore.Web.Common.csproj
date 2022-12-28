@@ -4,6 +4,7 @@
 	
 	<PropertyGroup>
 		<RootNamespace>Smartstore.Web</RootNamespace>
+		<TargetFramework>net7.0</TargetFramework>
 	</PropertyGroup>
   
 	<ItemGroup>

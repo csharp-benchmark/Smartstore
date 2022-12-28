@@ -3,5 +3,6 @@
         <Product>Smartstore Shipping</Product>
         <OutputPath>..\..\Smartstore.Web\Modules\Smartstore.Shipping</OutputPath>
         <OutDir>$(OutputPath)</OutDir>
+        <TargetFramework>net7.0</TargetFramework>
     </PropertyGroup>
 </Project>

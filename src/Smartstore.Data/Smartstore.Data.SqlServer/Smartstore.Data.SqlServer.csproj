@@ -4,6 +4,7 @@
 	
 	<PropertyGroup>
 		<Nullable>annotations</Nullable>
+		<TargetFramework>net7.0</TargetFramework>
 	</PropertyGroup>
 
 	<ItemGroup>

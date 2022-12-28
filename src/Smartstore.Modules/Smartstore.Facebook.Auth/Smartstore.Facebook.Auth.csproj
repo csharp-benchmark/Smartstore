@@ -3,6 +3,7 @@
 		<Product>Smartstore Facebook Authentication</Product>
 		<OutputPath>..\..\Smartstore.Web\Modules\Smartstore.Facebook.Auth</OutputPath>
 		<OutDir>$(OutputPath)</OutDir>
+		<TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
 	<ItemGroup>
 	  <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="7.0.0" />

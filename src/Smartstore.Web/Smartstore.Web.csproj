@@ -129,6 +129,8 @@
 		<ConcurrentGarbageCollection>false</ConcurrentGarbageCollection>
 		
 		<AssemblyName>Smartstore.Web</AssemblyName>
+		
+		<TargetFramework>net7.0</TargetFramework>
 	</PropertyGroup>
 
 </Project>

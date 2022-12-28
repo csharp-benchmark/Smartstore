@@ -16,6 +16,7 @@
 	<PropertyGroup>
 		<Optimize>false</Optimize>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<TargetFramework>net7.0</TargetFramework>
 	</PropertyGroup>
 
 	<!--<ItemGroup>

@@ -3,5 +3,6 @@
 		<Product>Smartstore OfflinePayment</Product>
 		<OutputPath>..\..\Smartstore.Web\Modules\Smartstore.OfflinePayment</OutputPath>
 		<OutDir>$(OutputPath)</OutDir>
+		<TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
 </Project>

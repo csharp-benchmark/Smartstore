@@ -3,6 +3,7 @@
         <Product>Smartstore Google Authentication</Product>
         <OutputPath>..\..\Smartstore.Web\Modules\Smartstore.Google.Auth</OutputPath>
         <OutDir>$(OutputPath)</OutDir>
+        <TargetFramework>net7.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="7.0.0" />
